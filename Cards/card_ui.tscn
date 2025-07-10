@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=3 uid="uid://ct5tqyrd0w7sa"]
+
+[ext_resource type="Script" uid="uid://be1yd7ext7eww" path="res://Cards/script_carte/card_ui.gd" id="1_gsifq"]
+[ext_resource type="Script" uid="uid://cnjm13d41fro7" path="res://Cards/script_carte/card_states/card_state_machine.gd" id="2_e4bcd"]
+[ext_resource type="Shader" uid="uid://cmux55rcuiqjm" path="res://SHADER/Carte_3d.gdshader" id="2_wuh85"]
+[ext_resource type="Script" uid="uid://cu7ruufyns7sa" path="res://Cards/script_carte/card_states/card_base_state.gd" id="3_kttqo"]
+[ext_resource type="Texture2D" uid="uid://rsme4q3bjq3h" path="res://Sprite_carte/Carte_venom/Venom-Bagno_di_sangue 2.png" id="3_me8gb"]
+[ext_resource type="Script" uid="uid://dit3ncx4u25um" path="res://Cards/script_carte/card_states/card_clicked_state.gd" id="4_oexf7"]
+[ext_resource type="Script" uid="uid://de0bfre2hrdmb" path="res://Cards/script_carte/card_states/card_dragging_state.gd" id="5_wuh85"]
+[ext_resource type="Script" uid="uid://cg7ykbj6w8rbd" path="res://Cards/script_carte/card_states/card_released_state.gd" id="6_me8gb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_me8gb"]
+shader = ExtResource("2_wuh85")
+shader_parameter/debug = false
+shader_parameter/border_scale = 1.0
+shader_parameter/shadow_offset = Vector2(0, 0)
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/blur_amount = 0.0
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+shader_parameter/hovering = 0.0
+shader_parameter/rand_trans_power = 1.0
+shader_parameter/rand_seed = 0.0
+shader_parameter/vortex_amt = 0.0
+shader_parameter/rotation = 0.0
+shader_parameter/mouse_screen_pos_test = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_308i1"]
+size = Vector2(142, 207)
+
+[node name="Card_UI" type="Control"]
+custom_minimum_size = Vector2(170, 200)
+layout_mode = 3
+anchor_right = 0.093
+anchor_bottom = 0.23
+offset_right = 21.2
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gsifq")
+
+[node name="Color" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 144.0
+offset_bottom = 204.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_me8gb")
+position = Vector2(73, 100)
+texture = ExtResource("3_me8gb")
+
+[node name="State" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 44.0
+offset_top = -12.5
+offset_right = 84.0
+offset_bottom = 10.5
+grow_vertical = 2
+
+[node name="DropPointDetector" type="Area2D" parent="."]
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
+position = Vector2(72, 104)
+shape = SubResource("RectangleShape2D_308i1")
+
+[node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_e4bcd")
+initial_state = NodePath("CardBaseState")
+
+[node name="CardBaseState" type="Node" parent="CardStateMachine"]
+script = ExtResource("3_kttqo")
+
+[node name="CardClickedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("4_oexf7")
+state = 1
+
+[node name="CardDraggingState" type="Node" parent="CardStateMachine"]
+script = ExtResource("5_wuh85")
+state = 2
+
+[node name="CardReleasedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("6_me8gb")
+state = 4
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="area_entered" from="DropPointDetector" to="." method="_on_drop_point_detector_area_entered"]
+[connection signal="area_exited" from="DropPointDetector" to="." method="_on_drop_point_detector_area_exited"]

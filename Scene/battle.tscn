@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://ciwfwhh7fi0rc"]
+
+[ext_resource type="Texture2D" uid="uid://dc70wfl8mr247" path="res://Sprite/Stage/Dragon/dragon0.png" id="1_wcqvn"]
+[ext_resource type="Texture2D" uid="uid://lkhgsq7calos" path="res://Sprite/Stage/Dragon/dragon1.png" id="2_7bk8s"]
+[ext_resource type="Texture2D" uid="uid://bvgyk3xhsf8a3" path="res://Sprite/Stage/Dragon/dragon2.png" id="3_0mx0c"]
+[ext_resource type="Texture2D" uid="uid://bsmj0j7k12vys" path="res://Sprite/Stage/Dragon/dragon3.png" id="4_vqh7i"]
+[ext_resource type="Texture2D" uid="uid://d27e1ax5nwhaj" path="res://Sprite/Stage/Dragon/dragon4.png" id="5_lhcfi"]
+[ext_resource type="Texture2D" uid="uid://r86sobib555m" path="res://Sprite/Stage/Dragon/dragon5.png" id="6_guoeg"]
+[ext_resource type="Texture2D" uid="uid://del1vfimb5a48" path="res://Sprite/Stage/Dragon/dragon6.png" id="7_41a8x"]
+[ext_resource type="Texture2D" uid="uid://cx86ykamf2vud" path="res://Sprite/Stage/Dragon/dragon7.png" id="8_68sdd"]
+[ext_resource type="Script" uid="uid://nge4c1frwy6w" path="res://UI/hand.gd" id="9_0mx0c"]
+[ext_resource type="PackedScene" uid="uid://ct5tqyrd0w7sa" path="res://Cards/card_ui.tscn" id="9_7bk8s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_stteo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wcqvn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7bk8s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0mx0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vqh7i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lhcfi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_guoeg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_41a8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_68sdd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 13.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcqvn"]
+size = Vector2(1608, 650)
+
+[node name="battle" type="Node2D"]
+
+[node name="Background" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(762, 257)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_stteo")
+autoplay = "default"
+frame = 6
+frame_progress = 0.180579
+metadata/_edit_lock_ = true
+
+[node name="CardDropArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(806, 322)
+shape = SubResource("RectangleShape2D_wcqvn")
+
+[node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+
+[node name="Hand" type="HBoxContainer" parent="BattleUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -496.0
+offset_top = -200.0
+offset_right = 496.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+script = ExtResource("9_0mx0c")
+
+[node name="Card_UI" parent="BattleUI/Hand" instance=ExtResource("9_7bk8s")]
+layout_mode = 2
+
+[node name="Card_UI2" parent="BattleUI/Hand" instance=ExtResource("9_7bk8s")]
+layout_mode = 2
+
+[node name="Card_UI3" parent="BattleUI/Hand" instance=ExtResource("9_7bk8s")]
+layout_mode = 2
