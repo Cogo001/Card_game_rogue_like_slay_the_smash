@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://bc5vtjsmnf8kn"]
+
+[ext_resource type="Script" uid="uid://b28k4rllxq30v" path="res://custom_resources/card.gd" id="1_nbrht"]
+
+[resource]
+script = ExtResource("1_nbrht")
+id = "test_attack"
+type = 0
+target = 1
+metadata/_custom_type_script = "uid://b28k4rllxq30v"
