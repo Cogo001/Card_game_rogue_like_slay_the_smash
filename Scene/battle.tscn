@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ciwfwhh7fi0rc"]
+[gd_scene load_steps=20 format=3 uid="uid://ciwfwhh7fi0rc"]
 
 [ext_resource type="Texture2D" uid="uid://dc70wfl8mr247" path="res://Sprite/Stage/Dragon/dragon0.png" id="1_wcqvn"]
 [ext_resource type="Texture2D" uid="uid://lkhgsq7calos" path="res://Sprite/Stage/Dragon/dragon1.png" id="2_7bk8s"]
@@ -10,10 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://cx86ykamf2vud" path="res://Sprite/Stage/Dragon/dragon7.png" id="8_68sdd"]
 [ext_resource type="Script" uid="uid://nge4c1frwy6w" path="res://UI/hand.gd" id="9_0mx0c"]
 [ext_resource type="PackedScene" uid="uid://ct5tqyrd0w7sa" path="res://Cards/card_ui.tscn" id="9_7bk8s"]
+[ext_resource type="PackedScene" uid="uid://c1ps08ean8b5i" path="res://Scene/player_scene/player.tscn" id="9_stteo"]
 [ext_resource type="PackedScene" uid="uid://cth6iywdsu8qa" path="res://Scene/card_target_selector/card_target_selector.tscn" id="10_41a8x"]
+[ext_resource type="Resource" uid="uid://bgrm5f05ej3n" path="res://characters/Test/test_character.tres" id="10_itugh"]
 [ext_resource type="Resource" uid="uid://bc5vtjsmnf8kn" path="res://characters/Test/cards/test_attack.tres" id="11_lhcfi"]
+[ext_resource type="PackedScene" uid="uid://c6jatse4dtdqd" path="res://Scene/enemy_scene/enemy.tscn" id="11_stteo"]
 [ext_resource type="Resource" uid="uid://c2mb55rry3bee" path="res://characters/Test/cards/test_block.tres" id="12_guoeg"]
-[ext_resource type="Texture2D" uid="uid://bol5pb07s30ww" path="res://Enemies/Sand_bag/sandbagpilebig-wtrtqzgb.png" id="13_guoeg"]
+[ext_resource type="Resource" uid="uid://bs8jwf8c6leso" path="res://enemies/Sand_bag/sand_bag_enemy.tres" id="12_itugh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_stteo"]
 animations = [{
@@ -50,9 +53,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wcqvn"]
 size = Vector2(1608, 650)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_guoeg"]
-size = Vector2(117, 177)
-
 [node name="battle" type="Node2D"]
 
 [node name="Background" type="AnimatedSprite2D" parent="."]
@@ -67,28 +67,21 @@ metadata/_edit_lock_ = true
 
 [node name="CardDropArea" type="Area2D" parent="."]
 collision_layer = 2
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
 position = Vector2(806, 322)
 shape = SubResource("RectangleShape2D_wcqvn")
 debug_color = Color(0.980392, 0, 0.368627, 0.14902)
+metadata/_edit_lock_ = true
 
-[node name="Enemy" type="Area2D" parent="."]
+[node name="Player" parent="." instance=ExtResource("9_stteo")]
+position = Vector2(328, 585)
+stats = ExtResource("10_itugh")
+
+[node name="Enemy" parent="." instance=ExtResource("11_stteo")]
 position = Vector2(1204, 540)
-collision_layer = 4
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
-position = Vector2(10.45, -1.65002)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("13_guoeg")
-flip_h = true
-region_enabled = true
-region_rect = Rect2(173.251, 83.8702, 483.713, 689.43)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-position = Vector2(4.94995, -8.15002)
-shape = SubResource("RectangleShape2D_guoeg")
-debug_color = Color(0, 0.6, 0.701961, 0.690196)
+stats = ExtResource("12_itugh")
 
 [node name="CardTargetSelector" parent="." instance=ExtResource("10_41a8x")]
 

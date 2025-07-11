@@ -2,7 +2,7 @@
 
 [sub_resource type="Curve" id="Curve_upxti"]
 _limits = [0.2, 1.0, 0.0, 1.0]
-_data = [Vector2(0, 0.2), 0.0, -0.668914, 0, 0, Vector2(0.712766, 0.982022), 0.0844944, 0.0844944, 0, 0, Vector2(1, 0.2), -1.6416, 0.0, 0, 0]
+_data = [Vector2(0, 0.2), 0.0, 0.195929, 0, 0, Vector2(0.99999, 0.991011), 0.0, 0.0, 0, 0, Vector2(1, 0.2), -1.6416, 0.0, 0, 0]
 point_count = 3
 
 [node name="CardArc" type="Line2D"]

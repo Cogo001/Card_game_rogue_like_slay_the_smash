@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1ps08ean8b5i"]
+
+[ext_resource type="Script" uid="uid://bcqe3p3ayh7g5" path="res://Scene/player_scene/player.gd" id="1_ijngg"]
+[ext_resource type="Texture2D" uid="uid://bb3sv0gb30in8" path="res://enemies/Sand_bag/sand_bag_sprite/tile0.png" id="1_wjk0o"]
+[ext_resource type="PackedScene" uid="uid://cl6r85kbwxtnf" path="res://UI/stats_ui.tscn" id="2_ijngg"]
+
+[node name="Player" type="Node2D" groups=["player"]]
+script = ExtResource("1_ijngg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, -53)
+texture = ExtResource("1_wjk0o")
+
+[node name="StatsUI" parent="." instance=ExtResource("2_ijngg")]
+offset_left = -222.0
+offset_top = -255.0
+offset_right = 225.0
+offset_bottom = -127.0

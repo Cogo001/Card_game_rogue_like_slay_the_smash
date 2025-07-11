@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=4 format=3 uid="uid://bgrm5f05ej3n"]
+
+[ext_resource type="Script" uid="uid://djtwbllii3n3l" path="res://custom_resources/character_stats.gd" id="1_glkkk"]
+[ext_resource type="Texture2D" uid="uid://bb3sv0gb30in8" path="res://enemies/Sand_bag/sand_bag_sprite/tile0.png" id="1_impuw"]
+[ext_resource type="Resource" uid="uid://us4hy153o58y" path="res://characters/Test/Test_starting_deck.tres" id="3_my244"]
+
+[resource]
+script = ExtResource("1_glkkk")
+starting_deck = ExtResource("3_my244")
+cards_per_turn = 4
+max_mana = 3
+max_health = 35
+art = ExtResource("1_impuw")
+metadata/_custom_type_script = "uid://djtwbllii3n3l"

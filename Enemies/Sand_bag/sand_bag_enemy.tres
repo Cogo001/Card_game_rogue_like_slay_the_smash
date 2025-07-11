@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=3 format=3 uid="uid://bs8jwf8c6leso"]
+
+[ext_resource type="Script" uid="uid://huqs6bsb3yci" path="res://custom_resources/stats.gd" id="1_ppvhb"]
+[ext_resource type="Texture2D" uid="uid://bb3sv0gb30in8" path="res://enemies/Sand_bag/sand_bag_sprite/tile0.png" id="1_tubs0"]
+
+[resource]
+script = ExtResource("1_ppvhb")
+max_health = 10
+art = ExtResource("1_tubs0")
+metadata/_custom_type_script = "uid://huqs6bsb3yci"

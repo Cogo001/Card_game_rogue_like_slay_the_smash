@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bmeh72pivholh"]
+
+[ext_resource type="Texture2D" uid="uid://dost56pv76imt" path="res://enemies/Sand_bag/sandbagpilebig.png" id="1_hlyam"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68sdd"]
+atlas = ExtResource("1_hlyam")
+region = Rect2(0, 0, 122, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stteo"]
+atlas = ExtResource("1_hlyam")
+region = Rect2(122, 0, 122, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itugh"]
+atlas = ExtResource("1_hlyam")
+region = Rect2(244, 0, 122, 204)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_68sdd")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_stteo")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_itugh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]

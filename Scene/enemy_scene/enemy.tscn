@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6jatse4dtdqd"]
+
+[ext_resource type="Texture2D" uid="uid://bb3sv0gb30in8" path="res://enemies/Sand_bag/sand_bag_sprite/tile0.png" id="1_agdnu"]
+[ext_resource type="Script" uid="uid://dftvxaw7gtk2u" path="res://Scene/enemy_scene/enemy.gd" id="1_o3usx"]
+[ext_resource type="Texture2D" uid="uid://dahgho4p2fr3n" path="res://Sprite/Icon/arrow_icon.png" id="2_onkgu"]
+[ext_resource type="PackedScene" uid="uid://cl6r85kbwxtnf" path="res://UI/stats_ui.tscn" id="3_3raew"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_guoeg"]
+size = Vector2(117, 165.35)
+
+[node name="Enemy" type="Area2D" groups=["enemies"]]
+collision_layer = 4
+script = ExtResource("1_o3usx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.00002, -7.00002)
+texture = ExtResource("1_agdnu")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.94995, -2.32501)
+shape = SubResource("RectangleShape2D_guoeg")
+debug_color = Color(0, 0.6, 0.701961, 0.690196)
+
+[node name="Arrow" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(103, 0)
+rotation = 1.5708
+texture = ExtResource("2_onkgu")
+
+[node name="StatsUI" parent="." instance=ExtResource("3_3raew")]
+offset_left = -215.0
+offset_top = -202.0
+offset_right = 232.0
+offset_bottom = -74.0

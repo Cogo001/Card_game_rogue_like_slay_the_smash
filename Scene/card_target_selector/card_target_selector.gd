@@ -55,12 +55,14 @@ func _on_card_aim_ended(_card: CardUI)-> void:
 	current_card=null
 	
 func _on_area_2d_area_entered(area:Area2D)-> void:
+	card_arc.default_color=Color.RED
 	if not current_card or not targeting:
 		return
 	if not current_card.targets.has(area):
 		current_card.targets.append(area)
 		
 func _on_area_2d_area_exited(area:Area2D)->void:
+	card_arc.default_color=Color.WHITE
 	if not current_card or not targeting:
 		return
 	

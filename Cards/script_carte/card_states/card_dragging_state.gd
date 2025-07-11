@@ -18,8 +18,8 @@ func enter() -> void:
 func on_input(event: InputEvent)->void:
 	var single_targeted := card_ui.card.is_single_targeted()
 	var mouse_motion:= event is InputEventMouseMotion
-	var cancel=event.is_action_pressed("right_click")
-	var confirm=event.is_action_pressed("left_click") or event.is_action_released("right_click")
+	var cancel=event.is_action_pressed("right_click") 
+	var confirm=event.is_action_released("left_click")#event.is_action_pressed("left_click") or event.is_action_released("right_click")
 	
 	if single_targeted and mouse_motion and card_ui.targets.size()>0:
 		transition_requested.emit(self,CardState.State.AIMING)
