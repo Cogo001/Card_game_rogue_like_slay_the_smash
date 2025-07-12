@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8yxghlykjy6e"]
+
+[ext_resource type="Script" uid="uid://c8clhe6xe7gxd" path="res://UI/mana_ui.gd" id="1_lu7sp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lu7sp"]
+font_size = 96
+outline_size = 45
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Mana_UI" type="Panel"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 22.675
+offset_top = -212.69
+offset_right = 222.675
+offset_bottom = -12.69
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("1_lu7sp")
+
+[node name="ManaLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5/5"
+label_settings = SubResource("LabelSettings_lu7sp")
+horizontal_alignment = 1
+vertical_alignment = 1

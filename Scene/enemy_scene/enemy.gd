@@ -1,7 +1,7 @@
 class_name  Enemy
 extends Area2D
 
-const  ARROW_OFFSET:=5
+const  ARROW_OFFSET:=30
 
 @export var stats :Stats :set=set_enemy_stats
 
@@ -40,3 +40,11 @@ func take_damage(damage : int) ->void:
 	
 	if stats.health<=0:
 		queue_free() 
+
+
+func _on_area_entered(_area):
+	arrow.show()
+
+
+func _on_area_exited(_area):
+	arrow.hide()

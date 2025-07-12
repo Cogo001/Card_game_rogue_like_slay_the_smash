@@ -1,10 +1,14 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://bc5vtjsmnf8kn"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bc5vtjsmnf8kn"]
 
-[ext_resource type="Script" uid="uid://b28k4rllxq30v" path="res://custom_resources/card.gd" id="1_nbrht"]
+[ext_resource type="Texture2D" uid="uid://4ywjwjweb3kt" path="res://Sprite_carte/sand_bag/sand_bag_attack.png" id="1_ygb2v"]
+[ext_resource type="Script" uid="uid://r2cwo76sg6c7" path="res://characters/Test/cards/sand_bag_attack.gd" id="2_ygb2v"]
 
 [resource]
-script = ExtResource("1_nbrht")
+script = ExtResource("2_ygb2v")
 id = "test_attack"
 type = 0
 target = 1
+cost = 1
+icon = ExtResource("1_ygb2v")
+tooltip_text = ""
 metadata/_custom_type_script = "uid://b28k4rllxq30v"
